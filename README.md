@@ -3,12 +3,12 @@
 ## For Linux
 ```sh
 # Docker
-$ docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hytssk/tensorflow
+$ docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hytssk/tensorflow
 ```
 
 ```sh
 # NVIDIA Docker
-$ nvidia-docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hytssk/tensorflow:gpu
+$ nvidia-docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix hytssk/tensorflow:gpu
 ```
 
 ## For Windows(utilize [MobaXTerm](http://mobaxterm.mobatek.net/))
