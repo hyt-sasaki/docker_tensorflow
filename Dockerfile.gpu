@@ -1,4 +1,4 @@
-From tensorflow/tensorflow:latest-gpu
+From tensorflow/tensorflow:latest-devel-gpu
 MAINTAINER Hayato Sasaki <h.sasaki.ynu@gmail.com>
 # install openssh-server for ssh
 # install python-qt4 for matplotlib backend
