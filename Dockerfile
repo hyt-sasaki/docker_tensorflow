@@ -17,7 +17,7 @@ RUN sed -ri 's/^UsePAM yes/UsePAM no/' /etc/ssh/sshd_config && \
     chmod 755 /var/run/sshd
 RUN echo "#!/usr/bin/env bash\\n/usr/sbin/sshd\\n/run_jupyter.sh" > /run.sh && chmod +x /run.sh
 # remote apt related cache
-RUN apt-get clean &&
+RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 ENV QT_X11_NO_MITSHM 1
