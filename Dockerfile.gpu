@@ -8,7 +8,6 @@ RUN apt-get update && \
 RUN adduser --disabled-password --gecos "" developer && \
     echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     echo "developer:developer" | chpasswd && \
-    cp -r /notebooks /home/developer && chown -R developer:developer /home/developer/notebooks && \
     cp -r /root/.jupyter /home/developer && chown -R developer:developer /home/developer/.jupyter
 # edit /etc/ssh/sshd_config
 RUN sed -ri 's/^UsePAM yes/UsePAM no/' /etc/ssh/sshd_config && \
@@ -23,5 +22,6 @@ RUN echo "[global]\\ntarget=/usr/lib/python2.7/dist-packages" > /etc/pip.conf &&
 
 ENV QT_X11_NO_MITSHM 1
 USER developer
+RUN mkdir /home/developer/notebooks
 WORKDIR /home/developer/notebooks
 CMD ["sudo", "/run.sh"]
