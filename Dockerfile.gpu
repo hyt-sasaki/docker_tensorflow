@@ -20,7 +20,10 @@ RUN echo "#!/usr/bin/env bash\\n/usr/sbin/sshd\\n/run_jupyter.sh" > /run.sh && c
 # avoid AttributeError:NewBase is_abstract
 # https://github.com/tensorflow/tensorflow/issues/1965
 RUN echo "[global]\\ntarget=/usr/lib/python2.7/dist-packages" > /etc/pip.conf && \
-    pip install --upgrade six
+    pip install --no-cache-dir --upgrade six
+# remote apt related cache
+RUN apt-clean &&
+    rm -rf /var/lib/apt/lists/*
 
 ENV QT_X11_NO_MITSHM 1
 USER developer
