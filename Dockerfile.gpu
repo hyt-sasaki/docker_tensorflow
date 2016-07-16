@@ -22,7 +22,7 @@ RUN echo "#!/usr/bin/env bash\\n/usr/sbin/sshd\\n/run_jupyter.sh" > /run.sh && c
 RUN echo "[global]\\ntarget=/usr/lib/python2.7/dist-packages" > /etc/pip.conf && \
     pip install --no-cache-dir --upgrade six
 # remote apt related cache
-RUN apt-clean &&
+RUN apt-get clean &&
     rm -rf /var/lib/apt/lists/*
 # symbolic link
 RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.4 /usr/lib/x86_64-linux-gnu/libcudnn.so
