@@ -17,10 +17,6 @@ In boot2docker,
 # Docker
 $ docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 -p 10022:22 hytssk/tensorflow
 ```
-```sh
-# NVIDIA-Docker
-$ nvidia-docker run -d --name tensorflow -p 8888:8888 -p 6006:6006 -p 10022:22 hytssk/tensorflow:gpu
-```
 
 After running container, 
 
