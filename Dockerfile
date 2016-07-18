@@ -4,6 +4,8 @@ MAINTAINER Hayato Sasaki <h.sasaki.ynu@gmail.com>
 # install python-qt4 for matplotlib backend
 RUN apt-get update && \
     apt-get install -y openssh-server python-qt4 --no-install-recommends
+# upgrade pip
+RUN pip --no-cheche-dir install --upgrade pip
 # install scikit-learn
 RUN pip --no-cache-dir install sklearn
 # add user 'developer'
