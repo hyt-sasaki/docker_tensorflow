@@ -3,7 +3,9 @@ MAINTAINER Hayato Sasaki <h.sasaki.ynu@gmail.com>
 # install openssh-server for ssh
 # install python-qt4 for matplotlib backend
 RUN apt-get update && \
-    apt-get install -y openssh-server python-qt4
+    apt-get install -y openssh-server python-qt4 --no-install-recommends
+# install scikit-learn
+RUN pip --no-cache-dir install sklearn
 # add user 'developer'
 RUN adduser --disabled-password --gecos "" developer && \
     echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
