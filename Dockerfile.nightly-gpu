@@ -26,8 +26,6 @@ RUN echo "[global]\\ntarget=/usr/lib/python2.7/dist-packages" > /etc/pip.conf &&
 # remote apt related cache
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-# symbolic link
-RUN ln -s /usr/lib/x86_64-linux-gnu/libcudnn.so.4 /usr/lib/x86_64-linux-gnu/libcudnn.so
 
 ENV QT_X11_NO_MITSHM 1
 USER developer
