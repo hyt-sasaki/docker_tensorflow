@@ -4,11 +4,13 @@ MAINTAINER Hayato Sasaki <h.sasaki.ynu@gmail.com>
 # install python-qt4 for matplotlib backend
 # install git
 RUN apt-get update && \
-    apt-get install -y openssh-server python-qt4 git --no-install-recommends
+    apt-get install -y openssh-server python-qt4 git libhdf5-dev --no-install-recommends
 # upgrade pip
 RUN pip --no-cache-dir install --upgrade pip
-# install scikit-learn
-RUN pip --no-cache-dir install sklearn
+# install scikit-learn and h5py
+RUN pip --no-cache-dir install \
+    sklearn \
+    h5py
 # add user 'developer'
 RUN adduser --disabled-password --gecos "" developer && \
     echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
