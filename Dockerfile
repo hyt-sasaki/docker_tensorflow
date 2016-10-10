@@ -24,7 +24,7 @@ RUN echo "#!/usr/bin/env bash\\n/usr/sbin/sshd\\n/run_jupyter.sh" > /run.sh && c
 # https://github.com/tensorflow/tensorflow/issues/1965
 RUN echo "[global]\\ntarget=/usr/lib/python2.7/dist-packages" > /etc/pip.conf && \
     pip install --no-cache-dir --upgrade six
-# remote apt related cache
+# remove apt related cache
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
