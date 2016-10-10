@@ -18,7 +18,7 @@ RUN adduser --disabled-password --gecos "" developer && \
     cp -r /root/.jupyter /home/developer && chown -R developer:developer /home/developer/.jupyter
 # edit /etc/ssh/sshd_config
 RUN sed -ri 's/^UsePAM yes/UsePAM no/' /etc/ssh/sshd_config && \
-    sed -ri 's/: agg/: Qt4Agg/g' /usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/matplotlibrc && \
+    sed -ri 's/^backend.*$/backend      : Qt4agg/g' /usr/local/lib/python2.7/dist-packages/matplotlib/mpl-data/matplotlibrc && \
     mkdir -p /var/run/sshd && \
     chmod 755 /var/run/sshd
 RUN echo "#!/usr/bin/env bash\\n/usr/sbin/sshd\\n/run_jupyter.sh" > /run.sh && chmod +x /run.sh
